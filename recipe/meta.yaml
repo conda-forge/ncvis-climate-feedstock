@@ -20,6 +20,8 @@ requirements:
     - libnetcdf
     - make
     - {{ compiler('cxx') }}
+    - wxwidgets               # [build_platform != target_platform]
+    - xorg-libxxf86vm         # [build_platform != target_platform]
   host:
     - libnetcdf
     - wxwidgets
