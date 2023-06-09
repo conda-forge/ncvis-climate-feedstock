@@ -1,5 +1,5 @@
 {% set name = "ncvis-climate" %}
-{% set version = "2022.08.28" %}
+{% set version = "2022.09.01" %}
 
 package:
   name: {{ name|lower }}
@@ -7,13 +7,13 @@ package:
 
 source:
   url: https://github.com/SEATStandards/ncvis/archive/refs/tags/{{ version }}.tar.gz
-  sha256: a522926739b2a05ef0b436fe67a2014557f9e5fecf3b7d7700964e9006a4bf3e
+  sha256: ddb57784dd98651e406a0f6488077c6887379ac8ff6a1b363c7b32d3fac0f8c9
   patches:
     - patches/fix-resources-path.patch
 
 build:
-  number: 2
-  skip: True  # [win]
+  number: 0
+  skip: true  # [win]
 
 requirements:
   build:
@@ -33,8 +33,8 @@ test:
 
 about:
   home: https://github.com/SEATStandards/ncvis
-  summary: 'NetCDF File Viewer'
-  description: 'NetCDF Visualizer'
+  summary: NetCDF File Viewer
+  description: NetCDF Visualizer
   license: MIT
   license_family: MIT
   license_file: LICENSE
