@@ -1,14 +1,23 @@
+From 754f396719d56569fb99abbe8cfc60c098609803 Mon Sep 17 00:00:00 2001
+From: mahf708 <naser.mahfouz@pnnl.gov>
+Date: Sat, 10 Jun 2023 07:18:55 -0700
+Subject: [PATCH] point NcVisResourceDir to conda's own
+
+---
+ src/ncvis.cpp | 3 +++
+ 1 file changed, 3 insertions(+)
+
 diff --git a/src/ncvis.cpp b/src/ncvis.cpp
---- src/ncvis.cpp
-+++ src/ncvis.cpp
-@@ -83,9 +83,9 @@
- 
+index a9376ba..7fd5ecb 100644
+--- a/src/ncvis.cpp
++++ b/src/ncvis.cpp
+@@ -94,6 +94,9 @@ bool wxNcVisApp::OnInit() {
  	wxString wxstrNcVisResourceDir = wxString(std::getenv("NCVIS_RESOURCE_DIR"));
  	if (wxstrNcVisResourceDir.length() == 0) {
  		wxFileName wxfn(wxStandardPaths::Get().GetExecutablePath());
--		wxfn.AppendDir(_T("resources"));
-+		wxfn.AppendDir(_T("../share/ncvis/resources"));
++		wxfn.RemoveLastDir();
++       wxfn.AppendDir(_T("share"));
++       wxfn.AppendDir(_T("ncvis"));
+ 		wxfn.AppendDir(_T("resources"));
  		wxfn.MakeAbsolute();
  		wxstrNcVisResourceDir = wxfn.GetPath();
- 		if (!wxfn.DirExists()) {
- 			std::cout << "ERROR: Cannot open resource directory \"" << wxstrNcVisResourceDir << "\"" << std::endl;

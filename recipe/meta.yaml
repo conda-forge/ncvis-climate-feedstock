@@ -12,19 +12,17 @@ source:
     - patches/fix-resources-path.patch
 
 build:
-  number: 1
+  number: 2
   skip: true  # [win]
 
 requirements:
   build:
-    - libnetcdf
     - make
     - {{ compiler('cxx') }}
   host:
     - libnetcdf
     - wxwidgets
-    - xorg-libxxf86vm
-  run:
+    - xorg-libxxf86vm   # [linux]
 
 test:
   commands:
