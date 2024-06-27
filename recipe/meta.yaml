@@ -1,5 +1,5 @@
 {% set name = "ncvis-climate" %}
-{% set version = "2023.09.12" %}
+{% set version = "2024.01.26" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://github.com/SEATStandards/ncvis/archive/refs/tags/{{ version }}.tar.gz
-  sha256: b96bac0f67f932caed65ab2e769c77df6c80c67d3e079b053b6168a0049f012d
+  sha256: 99d155bb854c8ccadc74ac51fd21ecd7efefbc1d07cebba4c3a8b2e4fe01bbfa
   patches:
     - patches/fix-resources-path.patch
 
@@ -19,6 +19,7 @@ requirements:
   build:
     - make
     - {{ compiler('cxx') }}
+    - {{ stdlib("c") }}
   host:
     - libnetcdf
     - wxwidgets
