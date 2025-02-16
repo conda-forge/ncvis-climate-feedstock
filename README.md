@@ -185,6 +185,3 @@ Feedstock Maintainers
 * [@mahf708](https://github.com/mahf708/)
 * [@xylar](https://github.com/xylar/)
 
-
-<!-- dummy commit to enable rerendering -->
-
