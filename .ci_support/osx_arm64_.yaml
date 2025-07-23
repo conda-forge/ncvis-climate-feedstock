@@ -13,7 +13,7 @@ channel_targets:
 cxx_compiler:
 - clangxx
 cxx_compiler_version:
-- '18'
+- '19'
 libnetcdf:
 - 4.9.2
 macos_machine:
@@ -21,4 +21,4 @@ macos_machine:
 target_platform:
 - osx-arm64
 wxwidgets:
-- 3.3.0
+- 3.3.1
