@@ -1,0 +1,49 @@
+schema_version: 1
+
+context:
+  name: ncvis-climate
+  version: "2024.01.26"
+
+package:
+  name: ${{ name|lower }}
+  version: ${{ version }}
+
+source:
+  url: https://github.com/SEATStandards/ncvis/archive/refs/tags/${{ version }}.tar.gz
+  sha256: 99d155bb854c8ccadc74ac51fd21ecd7efefbc1d07cebba4c3a8b2e4fe01bbfa
+  patches:
+    - patches/fix-resources-path.patch
+
+build:
+  number: 10
+  skip: win
+
+requirements:
+  build:
+    - make
+    - ${{ compiler('cxx') }}
+    - ${{ stdlib("c") }}
+  host:
+    - libnetcdf
+    - wxwidgets
+    - if: linux
+      then: xorg-libxxf86vm
+
+tests:
+  - script:
+      - test -f ${PREFIX}/bin/ncvis
+      - test -f ${PREFIX}/share/ncvis/resources/ne_110m_admin_0_countries.shp
+
+about:
+  summary: NetCDF File Viewer
+  description: NetCDF Visualizer
+  license: MIT
+  license_file: LICENSE
+  homepage: https://github.com/SEATStandards/ncvis
+  repository: https://github.com/SEATStandards/ncvis
+  documentation: https://github.com/SEATStandards/ncvis
+
+extra:
+  recipe-maintainers:
+    - mahf708
+    - xylar
