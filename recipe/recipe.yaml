@@ -15,7 +15,7 @@ source:
     - patches/fix-resources-path.patch
 
 build:
-  number: 11
+  number: 12
   skip: win
 
 requirements:
