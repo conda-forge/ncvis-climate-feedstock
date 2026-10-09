@@ -18,11 +18,8 @@ RPATH=`wx-config --prefix`/lib
 
 # build the executable
 pushd src
-$CXX ${CXXFLAGS} -o ncvis \
-    ncvis.cpp kdtree.cpp wxNcVisFrame.cpp wxNcVisOptionsDialog.cpp wxNcVisExportDialog.cpp \
-    wxImagePanel.cpp GridDataSampler.cpp ColorMap.cpp netcdf.cpp ncvalues.cpp Announce.cpp \
-    TimeObj.cpp ShpFile.cpp schrift.cpp lodepng.cpp \
-    ${WXFLAGS} ${NCFLAGS}
+# every .cpp in src is part of the program (upstream globs the same way)
+$CXX ${CXXFLAGS} -o ncvis *.cpp ${WXFLAGS} ${NCFLAGS}
 
 mkdir -p ${PREFIX}/bin
 cp ncvis ${PREFIX}/bin/ncvis
