@@ -24,10 +24,10 @@ requirements:
     - ${{ compiler('cxx') }}
     - ${{ stdlib("c") }}
   host:
-    - libnetcdf
-    - wxwidgets
     - if: linux
       then: xorg-libxxf86vm
+    - wxwidgets
+    - libnetcdf
 
 tests:
   - script:
