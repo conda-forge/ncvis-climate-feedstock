@@ -2,7 +2,7 @@ schema_version: 1
 
 context:
   name: ncvis-climate
-  version: "2024.01.26"
+  version: "2026.10.07"
 
 package:
   name: ${{ name|lower }}
@@ -10,12 +10,12 @@ package:
 
 source:
   url: https://github.com/SEATStandards/ncvis/archive/refs/tags/${{ version }}.tar.gz
-  sha256: 99d155bb854c8ccadc74ac51fd21ecd7efefbc1d07cebba4c3a8b2e4fe01bbfa
+  sha256: df6ccefe04ac0c822617db5e3e38e0a3f230f940061567679e7c3c956d8e1b23
   patches:
     - patches/fix-resources-path.patch
 
 build:
-  number: 12
+  number: 0
   skip: win
 
 requirements:
